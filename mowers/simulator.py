@@ -9,7 +9,7 @@ class Simulator:
 
     def __init__(self, input=None):
         if input:
-            self.lawn = parse_input(input)
+            self.lawn = self.parse_input(input)
         else:
             self.lawn = Lawn()
 
@@ -22,7 +22,7 @@ class Simulator:
             raise ValueError("Lawn area should be strictly positive")
 
         mowers = []
-        for i in range(len(lines)//2):
+        for i in range((len(lines)-1)//2):
             x, y, orientation = lines[2*i + 1].split(" ")
             x, y = int(x), int(y)
             movements = list(lines[2*i + 2])
