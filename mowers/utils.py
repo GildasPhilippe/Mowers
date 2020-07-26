@@ -1,0 +1,8 @@
+NORTH = "N"
+SOUTH = "S"
+WEST = "W"
+EAST = "E"
+
+MOVE_FORWARD = "F"
+TURN_LEFT = "L"
+TURN_RIGHT = "R"
