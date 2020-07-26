@@ -7,6 +7,8 @@ from mowers.utils import EAST, NORTH, SOUTH, WEST, MOVE_FORWARD, TURN_LEFT, TURN
 
 class Simulator:
 
+    """Simulation manager for a lawn mowing process"""
+
     def __init__(self, input=None):
         if input:
             self.lawn = self.parse_input(input)
@@ -15,6 +17,7 @@ class Simulator:
 
     @staticmethod
     def parse_input(input):
+        """Parse a string input, check its consistency and return a made lawn out of it"""
         lines = input.split("\n")
         width, height = map(int, lines[0].split(" "))
 
@@ -42,12 +45,14 @@ class Simulator:
 
     @staticmethod
     def make_output(mowers):
+        """Return a string of the formatted output"""
         lines = []
         for mower in mowers:
             lines.append("{x} {y} {o}".format(x=mower.x, y=mower.y, o=mower.orientation))
         return "\n".join(lines)
 
     def run(self):
+        """For each mower on the lawn run the movements in a new thread. Return a formatted output once all ended"""
         threads = [Runner(self.lawn, mower) for mower in self.lawn.mowers]
         for thread in threads:
             thread.start()
@@ -58,12 +63,15 @@ class Simulator:
 
 class Runner(Thread):
 
+    """Thread class in order to run a mower movement list"""
+
     def __init__(self, lawn, mower):
         self.lawn = lawn
         self.mower = mower
         Thread.__init__(self)
 
     def run(self):
+        """Run all the mower's movement list"""
         for movement in self.mower.movements:
             self.lawn.move_mower(self.mower, movement)
             # Uncomment the next line in order to print the execution parallelism:

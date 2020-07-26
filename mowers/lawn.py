@@ -3,6 +3,8 @@ from mowers.utils import EAST, NORTH, SOUTH, WEST, MOVE_FORWARD, TURN_LEFT, TURN
 
 class Lawn:
 
+    """Lawn entity class"""
+
     def __init__(self, width=5, height=5, mowers=[]):
         self.width = width
         self.height = height
@@ -12,10 +14,12 @@ class Lawn:
             self.add_mower(mower)
 
     def add_mower(self, mower):
+        """Add a mower and its position to the lawn attributes"""
         self.mowers.append(mower)
         self.mowers_positions[str([mower.x, mower.y])] = mower
 
     def move_mower(self, mower, movement):
+        """Make the mower do the movement, if possible"""
         if movement == TURN_LEFT:
             mower.turn_left()
         elif movement == TURN_RIGHT:
