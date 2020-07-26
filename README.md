@@ -1,6 +1,6 @@
 # Mower Simulator
 
-Technical test for the ML Engineer position at BlaBlaCar (summer 2020).
+Technical test for the Junior ML Engineer position at BlaBlaCar (summer 2020).
 
 
 ## Description
@@ -49,5 +49,5 @@ python3 main.py
 
 This project could be improved by implementing the following ideas:
 * Set a mower tracing in order to follow more precisely the mowers moves
-* Implement an interface (a grid within termnial or in a grapial window)
+* Implement an interface (a grid within terminal or in a graphical window)
 
